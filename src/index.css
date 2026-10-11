@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Tema Escuro Profissional para NFTs */
+    --background: 0 0% 5%;        /* #0D0D0D (Fundo quase preto) */
+    --foreground: 0 0% 100%;      /* #FFFFFF (Texto branco) */
+
+    --card: 0 0% 10%;             /* #1A1A1A (Fundo dos cards) */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 24 90% 53%;        /* #F97316 (Laranja/Âmbar de destaque) */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 15%;      /* #27272A (Cinza escuro para badges/botões secundários) */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 65%; /* #A1A1AA (Texto cinza secundário) */
+
+    --accent: 24 90% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 16%;         /* #27272A (Bordas sutis) */
+    --input: 240 5% 16%;
+    --ring: 24 90% 53%;           /* Anel de foco laranja */
+
+    --radius: 0.75rem;            /* Bordas um pouco mais arredondadas (moderno) */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
