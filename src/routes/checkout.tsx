@@ -24,7 +24,7 @@ function CheckoutContent() {
   const { items, getTotal, clearCart } = useCartStore();
   
   // Busca dados frescos dos NFTs para garantir que o preço/estoque está atualizado
-  const { data: nfts, isLoading } = useQuery({
+  const { isLoading } = useQuery({
     queryKey: ['nfts'],
     queryFn: async () => {
       const response = await api.get('/nfts');

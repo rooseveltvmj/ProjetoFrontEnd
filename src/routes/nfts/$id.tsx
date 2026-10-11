@@ -5,7 +5,7 @@ import { api } from '@/lib/api';
 import { useCartStore } from '@/lib/cartStore';
 import { useNftPriceSocket } from '@/hooks/useNftPriceSocket'; // 👈 IMPORTAÇÃO ADICIONADA
 import type { NFT } from '@/types';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';

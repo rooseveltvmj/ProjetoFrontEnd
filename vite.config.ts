@@ -8,7 +8,12 @@ export default defineConfig({
   plugins: [TanStackRouterVite(), react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      // Usa import.meta.dirname para evitar o aviso de depreciação do Vite
+      '@': path.resolve(import.meta.dirname, './src'),
     },
+  },
+  build: {
+    // Força o uso do esbuild para minificar o CSS, contornando problemas com lightningcss
+    cssMinify: 'esbuild',
   },
 });

@@ -1,5 +1,6 @@
 // src/lib/auth.tsx
-import { ReactNode, useEffect, useState } from 'react';
+import type { ReactNode } from 'react'; // 👈 Correção 1: import type
+import { useEffect, useState } from 'react';
 import { Navigate } from '@tanstack/react-router';
 
 export function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -7,13 +8,12 @@ export function ProtectedRoute({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const checkAuth = () => {
-      const token = localStorage.getItem('auth_token');
-      setIsAuthenticated(!!token);
+      // 👈 Correção 2: Usado diretamente sem declarar variável
+      setIsAuthenticated(!!localStorage.getItem('auth_token'));
     };
     
     checkAuth();
     
-    // Escuta mudanças no localStorage
     window.addEventListener('storage', checkAuth);
     return () => window.removeEventListener('storage', checkAuth);
   }, []);
@@ -42,7 +42,7 @@ export function useAuth() {
       const storedUser = localStorage.getItem('user');
       const token = localStorage.getItem('auth_token');
       
-      if (storedUser) {
+      if (storedUser && token) {
         setUser(JSON.parse(storedUser));
         setIsAuthenticated(true);
       } else {
@@ -53,10 +53,7 @@ export function useAuth() {
 
     updateAuth();
     
-    // Escuta mudanças no localStorage
     window.addEventListener('storage', updateAuth);
-    
-    // Atualiza quando foca na janela (após login/register)
     window.addEventListener('focus', updateAuth);
     
     return () => {
@@ -68,7 +65,6 @@ export function useAuth() {
   const logout = () => {
     localStorage.removeItem('auth_token');
     localStorage.removeItem('user');
-    // Dispara evento para outros componentes saberem
     window.dispatchEvent(new Event('storage'));
     window.location.href = '/';
   };

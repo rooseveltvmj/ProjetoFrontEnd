@@ -7,10 +7,8 @@ import { queryClient } from './lib/queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
-// 1. Criar o router
 const router = createRouter({ routeTree });
 
-// 2. Registrar o router para tipagem global
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router;
@@ -18,7 +16,8 @@ declare module '@tanstack/react-router' {
 }
 
 async function enableMocking() {
-  if (process.env.NODE_ENV !== 'development') {
+  // CORREÇÃO: Usar import.meta.env.DEV que é o padrão do Vite
+  if (!import.meta.env.DEV) {
     return;
   }
 
