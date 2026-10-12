@@ -16,13 +16,16 @@ declare module '@tanstack/react-router' {
 }
 
 async function enableMocking() {
-  // CORREÇÃO: Usar import.meta.env.DEV que é o padrão do Vite
-  if (!import.meta.env.DEV) {
-    return;
-  }
-
+  // Habilita MSW tanto em desenvolvimento quanto em produção
+  // (necessário para o desafio técnico funcionar sem backend real)
   const { worker } = await import('./mocks/browser');
-  return worker.start({ onUnhandledRequest: 'bypass' });
+  
+  return worker.start({
+    onUnhandledRequest: 'bypass',
+    serviceWorker: {
+      url: '/mockServiceWorker.js'
+    }
+  });
 }
 
 enableMocking().then(() => {
