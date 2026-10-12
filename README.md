@@ -15,9 +15,11 @@ Marketplace de NFTs desenvolvido para o desafio técnico da Jungle Gaming.
 
 ## 🌐 Deploy e Links
 
-- **Aplicação Publicada:** https://projeto-front-end-six.vercel.app/
+## 🌐 Deploy e Links
+
+- **Aplicação Publicada:** https://projeto-front-end-pi.vercel.app
 - **Repositório:** https://github.com/rooseveltvmj/ProjetoFrontEnd
-- **Relatório Lighthouse:** Veja o arquivo `lighthouse-report.html` (ou `.json`) na raiz do projeto.
+- **Relatório Lighthouse:** Veja o arquivo `lighthouse-report.html` na raiz do projeto.
 - **Arquitetura:** Detalhes da implementação em `ARCHITECTURE.md`.
 
 ## 🏁 Como Rodar Localmente
